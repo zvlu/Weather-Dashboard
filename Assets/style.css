@@ -21,6 +21,25 @@ body {
     margin-top:10px;
     /* display: none; */
 }
+.five-day {
+    border: 2px solid black;
+    height:12rem;
+    background-color:rgb(0, 132, 255);
+    color:#fff;
+    margin-bottom:10px;
+}
+
+.col {
+    margin-right:15px;
+    margin-top:10px;
+    margin-left:5px;
+}
+
+.card {
+    margin-top:10px;
+    padding: 5px 5px 5px 5px;
+    
+}
 .show {
     visibility:visible;
 }
