@@ -15,6 +15,6 @@ It also provides a history of cities search right under the search box. Also the
 
 #### Pictures
 
-![weatherdashboard](/Weather Dashboard 5 DAY FORECAST.jpg  "WeatherDashbaord")
+![weatherdashboard](Weather Dashboard 5 DAY FORECAST.jpg  "WeatherDashbaord")
 
-![weatherdashboard](/Weather Dashboard ONE DAY FORECAST.jpg "WeatherDashbaord")
+![weatherdashboard](Weather Dashboard ONE DAY FORECAST.jpg "WeatherDashbaord")
