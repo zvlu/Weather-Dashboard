@@ -1,10 +1,80 @@
 
 $( document ).ready(function() {
+
+    const apiKey = '&apikey=63d3c3ee188d89772b5fad7611b9dc22';
+   
+    var cityArr = JSON.parse(localStorage.getItem('cityArr')) || [];
+    var city = "";
+    dataGet ();
+
+    
+    function dataset () {
+        city =  $('#city-Name').val().trim();
+        cityArr.push(city);
+        localStorage.setItem('cityArr', JSON.stringify(cityArr));
+    }
+
+ 
+
+    function dataGet() {
+        // Storage.clear();
+        $(".list-group").empty();
+
+        // for loop to create lI with the cityARR
+
+        for (var i = 0; i < cityArr.length; i++) {
+            var list = $('<li>');
+            
+
+            list.addClass('list-group-item');
+            list.css({'padding-right': "0px", 'padding-left' : '0px', "margin-top" : "4px"});
+            
+            var cityBtn = $('<button>');
+
+            cityBtn.addClass('history-btn');
+            cityBtn.attr('type', 'button');
+            cityBtn.css({'width': '100%' , 'text-align' : 'center', 'font-size': '1.5rem'});
+            cityBtn.text(cityArr[i]);
+
+            list.html(cityBtn);
+
+            $('.list-group').prepend(list);
+            
+
+            
+            
+
+        }
+
+    }
+    
+    $(document).on('click', '.history-btn', function () {
+        var searchCity = $(this).text();
+        renderWeather(searchCity);
+        fiveDay(searchCity);
+    });
     
     $('#searchBtn').on ('click',function(){
-         // 5 day forecast call
-        const apiKey = '&apikey=63d3c3ee188d89772b5fad7611b9dc22';
         var city = $('#city-Name').val();
+         // 5 day forecast call
+        
+        dataset();
+        dataGet();
+        renderWeather(city);
+        fiveDay();
+    });
+    
+
+    $('searchBtn').keypress(function(event){
+        var key = event.which;
+        if (key == 13) {
+            event.preventDefault();
+            dataset();
+            dataGet();
+            renderWeather(city);
+        }
+    })
+        
         var renderWeather = function (city) {
             var baseUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + apiKey;  
                 $.ajax({
@@ -29,12 +99,16 @@ $( document ).ready(function() {
                     $("#humidity").wrap("<strong></strong>");
                     $("#wind-speed").text(response.wind.speed + " MPH");
                     $("#wind-speed").wrap("<strong></strong>");
-
+                    
+                    renderUV(response);
+                   
 
                     
                 });
                 
         }
+        
+        
         var fiveDay = function() {
             $.ajax({
                 url: "http://api.openweathermap.org/data/2.5/forecast?q=" + city + apiKey,
@@ -115,24 +189,31 @@ $( document ).ready(function() {
             }); 
 
         }
-        var renderUV = function() {
-            var queryURL = "http://api.openweathermap.org/data/2.5/uvi?" + apiKey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
+        var renderUV = function(data) {
+            var queryURL = "http://api.openweathermap.org/data/2.5/uvi?" + apiKey + "&lat=" + data.coord.lat + "&lon=" + data.coord.lon;
             $.ajax({
                 url: queryURL,
                 method: "GET",
                 
             }).then(function (response) {
-                console.log("UV Index below:");
+                console.log("UV Index :");
                 console.log(response);
+                // var num = parseInt(response.value);
+                // var renderNum = parseFloat(response.value).toFixed(2);
+                $('#UV').text(response.value);
+
             }); 
 
         }
+
         
+        
+    // fiveDay();
+    renderUV();      
+ 
     
-    renderWeather(city);        
-    fiveDay();
-    renderUV();  
     
-    });
+   
+
        
 });

@@ -5,9 +5,19 @@
 }
 body {
     
-        background-color:#ccc;
+        
         height:100%;
         margin-bottom: 40px;
+}
+#dashboard {
+    background-color:rgb(0, 132, 255);
+    color:#fff;
+    text-align:center;
+    max-height:70px;
+    width:flex;
+    padding:0px 0px 0px 0px;
+    margin:0 auto;
+
 }
 .container {
     margin-top:0px;
@@ -21,8 +31,8 @@ body {
     margin-top:10px;
     /* display: none; */
 }
-.five-day {
-    border: 2px solid black;
+.five{
+    border: 1px solid rgb(255, 252, 252);
     height:12rem;
     background-color:rgb(0, 132, 255);
     color:#fff;
@@ -37,21 +47,28 @@ body {
 
 .card {
     margin-top:10px;
-    padding: 5px 5px 5px 5px;
+    padding: 6px 6px 6px 6px;
     
+}
+.history-btn {
+    background-color:rgb(0, 132, 255);
 }
 .show {
     visibility:visible;
 }
-h1{
-    text-align: center;
-    background-color: rgb(44, 42, 42);
-    color: white;
-    font-size: 50px;
-    padding-bottom: 20px;
-
-}
-
 .searchTitle {
     text-align: left;
+}
+footer{
+    text-align: center;
+}
+@media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1279px;
+    }
+}
+@media (min-width: 576px) {
+    #dashboard {
+      padding-bottom: 0;
+    }
 }
