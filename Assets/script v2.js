@@ -9,6 +9,7 @@ $( document ).ready(function() {
 
     
     function dataset () {
+        
         city =  $('#city-Name').val().trim();
         cityArr.push(city);
         localStorage.setItem('cityArr', JSON.stringify(cityArr));
@@ -18,10 +19,10 @@ $( document ).ready(function() {
 
     function dataGet() {
         // Storage.clear();
-        $(".list-group").empty();
+        
 
         // for loop to create lI with the cityARR
-
+        
         for (var i = 0; i < cityArr.length; i++) {
             var list = $('<li>');
             
@@ -37,7 +38,7 @@ $( document ).ready(function() {
             cityBtn.text(cityArr[i]);
 
             list.html(cityBtn);
-
+            $(".list-group").empty();
             $('.list-group').prepend(list);
             
 
@@ -45,6 +46,7 @@ $( document ).ready(function() {
             
 
         }
+        
 
     }
     
@@ -57,7 +59,7 @@ $( document ).ready(function() {
     $('#searchBtn').on ('click',function(){
         var city = $('#city-Name').val();
          // 5 day forecast call
-        
+    
         dataset();
         dataGet();
         renderWeather(city);
