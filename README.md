@@ -17,6 +17,6 @@ This application makes 3 calls to  https://openwweathermap.org for weather data,
 
 #### Pictures
 
-![weatherdashboard](/Weather Dashboard 5 DAY FORECAST.jpg  "WeatherDashbaord")
+![alt test](Weather-Dashboard/Weather Dashboard 5 DAY FORECAST.jpg  "WeatherDashbaord")
 
-![weatherdashboard](/Weather Dashboard ONE DAY FORECAST.jpg "WeatherDashbaord")
+![alt test](Weather-Dashboard/Weather Dashboard ONE DAY FORECAST.jpg "WeatherDashbaord")
