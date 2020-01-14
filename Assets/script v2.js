@@ -1,6 +1,6 @@
 
 $( document ).ready(function() {
-
+ 
     const apiKey = '&apikey=63d3c3ee188d89772b5fad7611b9dc22';
    
     var cityArr = JSON.parse(localStorage.getItem('cityArr')) || [];
